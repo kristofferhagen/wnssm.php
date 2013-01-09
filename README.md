@@ -5,7 +5,7 @@ Wireless Network Signal Strength Monitor is a console text-only application show
 Usage
 -----
 ```bash
-./wssm.php INTERFACE [--essid=ESSID] [--address=ADDRESS]
+root@computer:~# ./wssm.php INTERFACE [--essid=ESSID] [--address=ADDRESS]
 ```
 
 Example Output
