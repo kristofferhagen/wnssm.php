@@ -11,6 +11,7 @@ Usage
 Example Output
 --------------
 ```
+root@computer:~# ./wnssm.php wlan0
  Network1            1E:AT:DE:AD:BE:EF [|||||||||||||||        ] 48/70 -62 dBm
  Network2            1A:TE:DE:AD:BE:EF [||||||||||||||||       ] 50/70 -60 dBm
 ```
