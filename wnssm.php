@@ -2,10 +2,10 @@
 <?php
 
 if (posix_getuid() !== 0) {
-	// Make sure we are running as root
-	echo "Must be run as root!";
-	echo PHP_EOL;
-	exit;
+    // Make sure we are running as root
+    echo "Must be run as root!";
+    echo PHP_EOL;
+    exit;
 }
 
 if ($_SERVER['argc'] < 2) {
@@ -124,7 +124,7 @@ function main($interface, $options)
         $pos_3 = ($quality_len_max / 3) * 2;
         $pos_4 = ($quality_len_max / 3) * 3;
 
-    	// Color signal quality bars
+        // Color signal quality bars
         $quality_str = substr_replace($quality_str, "\033[0m",    $pos_4, 0);
         $quality_str = substr_replace($quality_str, "\033[32;1m", $pos_3, 0);
         $quality_str = substr_replace($quality_str, "\033[33;1m", $pos_2, 0);
