@@ -5,13 +5,13 @@ Wireless Network Signal Strength Monitor is a console text-only application show
 Usage
 -----
 ```bash
-root@computer:~# ./wssm.php INTERFACE [--essid=ESSID] [--address=ADDRESS]
+root@computer:~# php bin/wnssm.php INTERFACE
 ```
 
 Example Output
 --------------
 ```bash
-root@computer:~# ./wnssm.php wlan0
+root@computer:~# php bin/wnssm.php wlan0
  Network1            1E:AT:DE:AD:BE:EF [|||||||||||||||        ] 48/70 -62 dBm
  Network2            1A:TE:DE:AD:BE:EF [||||||||||||||||       ] 50/70 -60 dBm
 ```

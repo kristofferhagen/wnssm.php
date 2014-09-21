@@ -1,0 +1,22 @@
+{
+    "name": "kristofferhagen/simplexml2flatarray",
+    "type": "project",
+    "description": "Shows the signal strength of available wireless networks",
+    "keywords": ["wireless", "network", "signal", "strength", "monitor"],
+    "homepage": "https://github.com/kristofferhagen/wnssm.php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Rødsdalen Hagen",
+            "email": "kristoffer.r.hagen@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/console": "2.5.*"
+    },
+    "autoload": {
+        "psr-4": { "KristofferHagen\\Wnssm\\": "src/" }
+    },
+    "minimum-stability": "dev"
+}
