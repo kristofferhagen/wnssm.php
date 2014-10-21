@@ -10,6 +10,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class WnssmCommand extends Command
 {
+    /**#@+
+     * Regular expressions used for matching
+     */
+    const REGEX_ADDRESS   = '/Address: ((?:[0-9a-f]{2}[:-]){5}[0-9a-f]{2})/i';
+    const REGEX_CHANNEL   = '/Channel:(\d)/';
+    const REGEX_FREQUENCY = '/Frequency:(.*)\s\(/';
+    const REGEX_QUALITY   = '/Quality\=([0-9]{2}\/[0-9]{2})/';
+    const REGEX_SIGNAL    = '/Signal level\=(.*)/';
+    const REGEX_ESSID     = '/ESSID:"([^"]+)"/';
+    /**#@-**/
+
     protected function configure()
     {
         $this
@@ -39,27 +50,27 @@ class WnssmCommand extends Command
         foreach ($cells_raw as $cell) {
             $cell_id = substr($cell, 0, 2);
 
-            if (preg_match('/Address: ((?:[0-9a-f]{2}[:-]){5}[0-9a-f]{2})/i', $cell, $matches)) {
+            if (preg_match(self::REGEX_ADDRESS, $cell, $matches)) {
                 $cells[$cell_id]['address'] = $matches[1];
             }
 
-            if (preg_match('/Channel:(\d)/', $cell, $matches)) {
+            if (preg_match(self::REGEX_CHANNEL, $cell, $matches)) {
                 $cells[$cell_id]['channel'] = $matches[1];
             }
 
-            if (preg_match('/Frequency:(.*)\s\(/', $cell, $matches)) {
+            if (preg_match(self::REGEX_FREQUENCY, $cell, $matches)) {
                 $cells[$cell_id]['frequency'] = $matches[1];
             }
 
-            if (preg_match('/Quality\=([0-9]{2}\/[0-9]{2})/', $cell, $matches)) {
+            if (preg_match(self::REGEX_QUALITY, $cell, $matches)) {
                 $cells[$cell_id]['quality'] = $matches[1];
             }
 
-            if (preg_match('/Signal level\=(.*)/', $cell, $matches)) {
+            if (preg_match(self::REGEX_SIGNAL, $cell, $matches)) {
                 $cells[$cell_id]['level'] = $matches[1];
             }
 
-            if (preg_match('/ESSID:"([^"]+)"/', $cell, $matches)) {
+            if (preg_match(self::REGEX_ESSID, $cell, $matches)) {
                 $cells[$cell_id]['essid'] = $matches[1];
             }
         }
