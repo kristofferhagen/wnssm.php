@@ -97,21 +97,22 @@ class WnssmCommand extends Command
             $quality_str = substr_replace($quality_str, "\033[33;1m", $pos_2, 0);
             $quality_str = substr_replace($quality_str, "\033[31;1m", $pos_1, 0);
 
-            echo ' ';
-            echo $cell['essid'];
+            $line = ' ';
+            $line .= $cell['essid'];
 
             $len = strlen($cell['essid']);
             for ($i = $len; $i < 20; $i++) {
-                echo ' ';
+                $line .= ' ';
             }
 
-            echo $cell['address'];
+            $line .= $cell['address'];
 
-            echo ' [' . $quality_str . '] ';
-            echo $cell['quality'];
-            echo ' ';
-            echo "\033[1m" . $cell['level'] . "\033[0m";
-            echo PHP_EOL;
+            $line .= ' [' . $quality_str . '] ';
+            $line .= $cell['quality'];
+            $line .= ' ';
+            $line .= "\033[1m" . $cell['level'] . "\033[0m";
+
+            $output->writeln($line);
         }
     }
 }
